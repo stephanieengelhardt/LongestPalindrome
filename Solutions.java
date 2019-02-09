@@ -14,12 +14,12 @@ public class Solutions{
       boolean dynamicTable[][]= new boolean[length][length];
 
       //All substrings that are of length 1 are palindromes, so make those indices true
-      for (int i = 0; i < length; ++i){
+      for (int i = 0; i < length; i++){
         dynamicTable[i][i] = true;
       }
 
       //Now do all the lengths of two and see if they are the same character
-      for (int i = 0; i < length - 1; ++i) {
+      for (int i = 0; i < length - 1; i++) {
         //If the two characters are the same
         if (s.charAt(i) == s.charAt(i + 1)) {
             dynamicTable[i][i + 1] = true;
@@ -31,8 +31,8 @@ public class Solutions{
       }
 
       // Continue making it bigger to check for more palindroms. Let l be the length we are checking for, go until n
-      for (int l = 3; l <= length; ++l) {
-        for (int i = 0; i < length - l + 1; ++i) {
+      for (int l = 3; l <= length; l++) {
+        for (int i = 0; i < length - l + 1; i++) {
             // Let j be where the ending index would be if this is a palindrom
             int j = i + l - 1;
 
